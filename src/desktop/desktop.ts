@@ -1,4 +1,4 @@
-import { AudioDriver, KeyboardDriver, MouseDriver, VGADriver } from "@/drivers";
+import { KeyboardDriver, MouseDriver, VGADriver } from "@/drivers";
 import { Logger } from "@/kernel";
 import { Cursor } from "./applets/cursor";
 import { StatusBar } from "./applets/status-bar";
@@ -21,9 +21,6 @@ export enum AppletPosition {
 export class Desktop {
   private logger: Logger;
   private vga: VGADriver;
-  private keyboard: KeyboardDriver;
-  private mouse: MouseDriver;
-  private audio: AudioDriver;
   private windowManager: WindowManager;
   private cursor: Cursor;
   private applets: Applet[] = [];
@@ -31,17 +28,9 @@ export class Desktop {
   private fps: number = 60;
   private lastTickTime: number = 0;
 
-  constructor(
-    vga: VGADriver,
-    keyboard: KeyboardDriver,
-    mouse: MouseDriver,
-    audio: AudioDriver
-  ) {
+  constructor(vga: VGADriver, keyboard: KeyboardDriver, mouse: MouseDriver) {
     this.logger = new Logger("Desktop");
     this.vga = vga;
-    this.keyboard = keyboard;
-    this.mouse = mouse;
-    this.audio = audio;
 
     // Initialize window manager
     this.windowManager = new WindowManager(vga, mouse, keyboard);

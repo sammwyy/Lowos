@@ -8,7 +8,7 @@ export class TextInputWidget implements Widget {
   private isFocused: boolean = false;
   private cursorPosition: number = 0;
   private cursorVisible: boolean = true;
-  private cursorBlinkTimer: number = 0;
+  // private cursorBlinkTimer: number = 0;
   private onChange: (text: string) => void;
   private textColor: string = "#000000";
   private bgColor: string = "#FFFFFF";
@@ -53,7 +53,7 @@ export class TextInputWidget implements Widget {
     const textColor = this.text ? this.textColor : this.placeholderColor;
 
     // Calculate visible text (handle overflow)
-    const textMetrics = this.vga.measureText(displayText);
+    // const textMetrics = this.vga.measureText(displayText);
     let visibleText = displayText;
     let textX = x + this.padding;
 

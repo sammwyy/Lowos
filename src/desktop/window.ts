@@ -20,8 +20,8 @@ export interface WindowEvent {
 export class Window {
   private id: number;
   private vga: VGADriver;
-  private keyboard: KeyboardDriver;
-  private mouse: MouseDriver;
+  // private keyboard: KeyboardDriver;
+  // private mouse: MouseDriver;
   private manager: WindowManager;
   private x: number;
   private y: number;
@@ -44,8 +44,8 @@ export class Window {
   constructor(
     id: number,
     vga: VGADriver,
-    keyboard: KeyboardDriver,
-    mouse: MouseDriver,
+    _keyboard: KeyboardDriver,
+    _mouse: MouseDriver,
     manager: WindowManager,
     title: string,
     x: number,
@@ -55,8 +55,8 @@ export class Window {
   ) {
     this.id = id;
     this.vga = vga;
-    this.keyboard = keyboard;
-    this.mouse = mouse;
+    // this.keyboard = keyboard;
+    // this.mouse = mouse;
     this.manager = manager;
     this.title = title;
     this.x = x;

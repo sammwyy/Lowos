@@ -85,19 +85,19 @@ export class Process {
     // Subclasses can override this to implement real-time behavior
   }
 
-  protected onKeyPress(key?: string): void {
+  protected onKeyPress(_key?: string): void {
     // Default implementation does nothing
   }
 
-  protected onMouseDown(x?: number, y?: number, button?: number): void {
+  protected onMouseDown(_x?: number, _y?: number, _button?: number): void {
     // Default implementation does nothing
   }
 
-  protected onMouseUp(x?: number, y?: number, button?: number): void {
+  protected onMouseUp(_x?: number, _y?: number, _button?: number): void {
     // Default implementation does nothing
   }
 
-  protected onMouseMove(x?: number, y?: number): void {
+  protected onMouseMove(_x?: number, _y?: number): void {
     // Default implementation does nothing
   }
 

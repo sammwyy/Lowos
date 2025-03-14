@@ -34,7 +34,7 @@ export class Kernel {
     this.fs = new FileSystem();
 
     // Start the desktop environment
-    this.desktop = new Desktop(this.vga, this.keyboard, this.mouse, this.audio);
+    this.desktop = new Desktop(this.vga, this.keyboard, this.mouse);
     this.desktop.start();
   }
 

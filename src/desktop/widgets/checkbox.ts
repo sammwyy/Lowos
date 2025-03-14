@@ -5,7 +5,7 @@ export class CheckboxWidget implements Widget {
   private vga: VGADriver;
   private label: string;
   private isChecked: boolean = false;
-  private isHovered: boolean = false;
+  private hovered: boolean = false;
   private onChange: (checked: boolean) => void;
   private textColor: string = "#000000";
   private boxSize: number = 16;
@@ -21,6 +21,10 @@ export class CheckboxWidget implements Widget {
     this.onChange = onChange;
   }
 
+  isHovered(): boolean {
+    return this.hovered;
+  }
+
   isSelected(): boolean {
     return this.isChecked;
   }
@@ -30,8 +34,8 @@ export class CheckboxWidget implements Widget {
     this.onChange(this.isChecked);
   }
 
-  draw(x: number, y: number, width: number, height: number): void {
-    const boxY = y + (height - this.boxSize) / 2;
+  draw(x: number, y: number, size: number): void {
+    const boxY = y + (size - this.boxSize) / 2;
 
     // Draw checkbox
     this.vga.drawRect(x, boxY, this.boxSize, this.boxSize, "#FFFFFF");
@@ -60,7 +64,7 @@ export class CheckboxWidget implements Widget {
     this.vga.drawText(
       this.label,
       x + this.boxSize + 8,
-      y + height / 2 + 5,
+      y + size / 2 + 5,
       this.textColor,
       this.font
     );
@@ -72,7 +76,7 @@ export class CheckboxWidget implements Widget {
       this.onChange(this.isChecked);
       return true;
     } else if (event.type === "mousemove") {
-      this.isHovered = true;
+      this.hovered = true;
       return true;
     }
 

@@ -11,7 +11,6 @@ export class TextWidget implements Widget {
   private textColor: string = "#000000";
   private backgroundColor: string = "#FFFFFF";
   private font: string = "16px monospace";
-  private focused: boolean = false;
 
   constructor(vga: VGADriver) {
     this.vga = vga;
@@ -36,10 +35,6 @@ export class TextWidget implements Widget {
 
   setFont(font: string): void {
     this.font = font;
-  }
-
-  setFocused(focused: boolean): void {
-    this.focused = focused;
   }
 
   draw(x: number, y: number, width: number, height: number): void {
@@ -121,7 +116,7 @@ export class TextWidget implements Widget {
     return this.maxScrollOffset;
   }
 
-  updateScrollInfo(width: number, height: number): void {
+  updateScrollInfo(_width: number, height: number): void {
     const contentLines = this.text.split("\n").length;
     const visibleLines = Math.floor(
       (height - 2 * this.padding) / this.lineHeight

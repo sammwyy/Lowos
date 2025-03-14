@@ -44,6 +44,14 @@ export class WindowManager {
     this.mouse.onMouseWheel((delta) => this.handleMouseWheel(delta));
   }
 
+  getFPS(): number {
+    return this.fps;
+  }
+
+  getLastTickTime(): number {
+    return this.lastTickTime;
+  }
+
   start(): void {
     if (this.running) return;
     this.running = true;
@@ -80,8 +88,6 @@ export class WindowManager {
 
   private handleMouseClick(pos: MousePosition, button: number) {
     if (button !== 0) return; // Only handle left clicks
-
-    const mouseDown = this.mouse.isButtonPressed(0);
 
     // Process windows in reverse order (from top to bottom)
     const windowIds = Array.from(this.windows.keys()).reverse();
